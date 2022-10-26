@@ -1,23 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HELLO WORLD FLASK USERS</title>
-</head>
-<body>
-    {% if user_ip %}
-        <h1>Hello World Platzi !, tu IP es {{ user_ip }}</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam illum qui, ipsa labore dignissimos accusamus animi dolores perferendis facilis! Assumenda pariatur sed, optio architecto magni in molestias porro est voluptas?</p>
-    {% else %}
-        <a href="{{ url_for('index') }}"></a>
-    {% endif %}
 
-    <ul>
-        {% for todo in todos %}
-            <li>todo</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+    {% extends 'base.html' %}
+    {% import 'macros.html' as macros %} 
+
+    {% block tittle %}
+        {{ super()}}
+        Bienvenido
+    {% endblock %}
+
+    {% block content %}
+
+        {% if user_ip %}
+            <h1   h1>Hello World Platzi !, tu IP es {{ user_ip }}</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam illum qui, ipsa labore dignissimos accusamus animi dolores perferendis facilis! Assumenda pariatur sed, optio architecto magni in molestias porro est voluptas?</p>
+        {% else %}
+            <a href="{{ url_for('index') }}"></a>
+        {% endif %}
+
+        <ul>
+            {% for todo in todos %}
+                {{ macros.render_todo(todo) }}
+            {% endfor %}
+        </ul>
+    {% endblock %}
