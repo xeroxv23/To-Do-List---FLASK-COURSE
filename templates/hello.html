@@ -7,6 +7,17 @@
     <title>HELLO WORLD FLASK USERS</title>
 </head>
 <body>
-    <h1>Hello World Platzi !, tu IP es {{ user_ip }}</h1>
+    {% if user_ip %}
+        <h1>Hello World Platzi !, tu IP es {{ user_ip }}</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam illum qui, ipsa labore dignissimos accusamus animi dolores perferendis facilis! Assumenda pariatur sed, optio architecto magni in molestias porro est voluptas?</p>
+    {% else %}
+        <a href="{{ url_for('index') }}"></a>
+    {% endif %}
+
+    <ul>
+        {% for todo in todos %}
+            <li>todo</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
