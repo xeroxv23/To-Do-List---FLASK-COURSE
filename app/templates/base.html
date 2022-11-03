@@ -4,9 +4,9 @@
     {{ super() }}
 
     <title>
-        {% block tittle %}Flask Platzi |{% endblock %}
+        {% block title %}Flask Platzi |{% endblock %}
     </title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
 {% endblock %}
 
 {% block body %}
@@ -15,16 +15,16 @@
     {% endblock %}
 
     {% for message in get_flashed_messages() %}
-        <div class="alert alert-succes alert-dismissible">
+        <div class="alert alert-success alert-dismissible">
             <button type="button"
-            data-bs-dismiss="alert"
-            class="close">&times;</button>
-        {{ message }}
+                    data-dismiss="alert"
+                    class="close">&times;</button>
+            {{ message }}
         </div>
     {% endfor %}
 
     {% block content %}{% endblock %}
     {% block scripts %}
-        {{ super }}
+        {{ super() }}
     {% endblock %}
 {% endblock %}
