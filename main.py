@@ -54,7 +54,7 @@ def hello():
     if todo_form.validate_on_submit():
         put_todo(user_id=username, description=todo_form.description.data)
 
-        flash('Tu tarea se creo con éxito!')
+        flash('Tu tarea fue creada con éxito!')
 
         return redirect(url_for('hello'))
 
