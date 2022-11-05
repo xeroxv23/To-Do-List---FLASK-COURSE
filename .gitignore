@@ -1,3 +1,5 @@
 venv/
 googe-cloud-sdk/
 gcloudignore/
+.gcloudignore/
+/google-cloud-sdk/
